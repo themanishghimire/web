@@ -218,7 +218,7 @@ body {
 
 .about_page .about_content p {
   font-size: 1rem;
-  text-align: left;
+  text-align: justify;
 }
 
 .about_profile {
