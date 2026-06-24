@@ -1,27 +1,28 @@
-let sidebar_navigation = document.getElementById('sidebar_navigation');
+document.addEventListener("DOMContentLoaded", () => {
 
-let sidebar_navigation_bottom = document.getElementById('sidebar_buttom_menu');
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
 
-sidebar_navigation_bottom.addEventListener('click', function () {
-    if (sidebar_navigation.style.left == "" || sidebar_navigation.style.left == "-100%") {
-        sidebar_navigation.style.left = "0"
-        document.getElementById('sidebar_menu_icon').classList.add('fa-close');
-    }
-    else {
-        sidebar_navigation.style.left = "-100%"
-        document.getElementById('sidebar_menu_icon').classList.remove('fa-close');
-    }
-})
+if(menuBtn){
 
+menuBtn.addEventListener("click", () => {
 
-let global_menu_buttom = document.getElementById('global_menu_button')
-let global_navigation = document.getElementById('global_menu_items')
-let global_close_buttom = document.getElementById('global_menu_close_button')
+if(navLinks.style.display === "flex"){
+navLinks.style.display = "none";
+}else{
+navLinks.style.display = "flex";
+navLinks.style.flexDirection = "column";
+navLinks.style.position = "absolute";
+navLinks.style.top = "80px";
+navLinks.style.right = "20px";
+navLinks.style.background = "#fff";
+navLinks.style.padding = "20px";
+navLinks.style.borderRadius = "12px";
+navLinks.style.boxShadow = "0 10px 25px rgba(0,0,0,.1)";
+}
 
-global_menu_buttom.addEventListener('click', function () {
-    global_navigation.style.left = "0";
-})
+});
 
-global_close_buttom.addEventListener('click', function () {
-    global_navigation.style.left = "-120%";
-})
+}
+
+});
