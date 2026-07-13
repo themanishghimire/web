@@ -1,28 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { links.classList.remove('open'); });
+    });
+  }
 
-const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
-
-if(menuBtn){
-
-menuBtn.addEventListener("click", () => {
-
-if(navLinks.style.display === "flex"){
-navLinks.style.display = "none";
-}else{
-navLinks.style.display = "flex";
-navLinks.style.flexDirection = "column";
-navLinks.style.position = "absolute";
-navLinks.style.top = "80px";
-navLinks.style.right = "20px";
-navLinks.style.background = "#fff";
-navLinks.style.padding = "20px";
-navLinks.style.borderRadius = "12px";
-navLinks.style.boxShadow = "0 10px 25px rgba(0,0,0,.1)";
-}
-
-});
-
-}
-
+  // Gentle pulse animation for hero node graph (if present)
+  var nodes = document.querySelectorAll('.hero-graph .node');
+  nodes.forEach(function (node, i) {
+    node.style.animationDelay = (i * 0.35) + 's';
+  });
 });
